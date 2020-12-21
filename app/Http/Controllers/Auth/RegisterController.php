@@ -2,72 +2,56 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\Auth\UserStatus;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\Auth\RegisterRequest;
+use App\Repositories\Auth\RegisterRepository;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
+    protected $repo;
 
     /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
+     * Instantiate a new controller instance
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
+    public function __construct(
+        RegisterRepository $repo
+    ) {
+        $this->repo = $repo;
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * User registration
+     * @post ("/api/auth/register")
+     * @param ({
+     *      @Parameter("name", type="string", required="true", description="User name"),
+     *      @Parameter("email", type="email", required="true", description="User email"),
+     *      @Parameter("username", type="string", required="true", description="User username"),
+     *      @Parameter("password", type="string", required="true", description="User password"),
+     *      @Parameter("confirm_password", type="string", required="optional", description="User confirm password"),
+     * })
+     * @return array
      */
-    protected function validator(array $data)
+    public function register(RegisterRequest $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $user = $this->repo->register();
+
+        return $this->success(['message' => __('auth.register.' . $user->status . '_message'), 'registration_status' => $user->status ]);
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
+     * User verification
+     * @post ("/api/auth/verify")
+     * @param ({
+     *      @Parameter("uuid", type="string", required="true", description="User activation token"),
+     * })
+     * @return array
      */
-    protected function create(array $data)
+    public function verify()
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $this->repo->verify();
+
+        return $this->success(['message' => __('auth.register.user_verified')]);
     }
 }

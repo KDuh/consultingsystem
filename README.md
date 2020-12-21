@@ -1,61 +1,146 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Connect
+Release Date    : 13 July 2020
+Author          : KodeMint
+Author Email    : kodemintservices@gmail.com
+Skype           : KodeMint
+Website         : https://kodemint.in
+Support         : http://support.kodemint.in
+Product Website : https://kodemint.in/connect
+Demo            : https://connect.kodemint.in
+--------------------------------------------
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+To read installation guidelines, please visit http://support.kodemint.in
 
-## About Laravel
+Version 1.6.0 Released on 23 November 2020
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* Group Chat Feature
+* User's Private Contacts & Segments Feature
+* Configuration added to Mute Participants on Start
+* Option added to Unmute or Mute Participants on Live Meeting
+* Live Meeting Page Improved
+* Start Instant Meeting Page Improved
+* Service Worker version updated
+* Live Class bug fix
+* Sidebar UI Config - Unsplash API bug fix
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* Custom Meeting Code and Keep Meeting Alive features added for Instant Meetings
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Version 1.5.0 Released on 29 October 2020
 
-## Learning Laravel
+* Custom Meeting Code and Keep Meeting Alive features added for Instant Meetings
+* Meeting auto timeout issue fixed
+* Clear command added to AnyKeyToSearch component
+* Meeting related configurations added for debugging & support
+* Instant Meeting start page layout issue fixed
+* Product update page improved
+* Installation wizard and Server prerequisites check updated
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Version 1.4.0 Released on 14 October 2020
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Input Device Selection on runtime improved on Live Meeting page
+* VAPID keys configuration added
+* Web Push notification feature integrated
+* PWA Manifest updated and caching improved
+* Meeting - pause and resume recording functions added
+* Meeting SDP Process related crashing issue fixed
+* Meeting recording issue fixed
+* Add to Home Screen Alert added with configuration
 
-## Laravel Sponsors
+Version 1.3.0 Released on 29 September 2020
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* WebRTC File Sharing Component added
+* Insert Emoji on Chat added
+* Live Meeting page refactored
+* Meeting Global and Single Level Configuration options added
+* User Avatar and Dropdown added on Live Meeting Page
+* Input Device Selection option added on Live Meeting Page
+* Resolution, Bandwidth & Frame Rate Configuration for Live Meeting Page
+* Grid / Tile Layout improved for Live Meeting Page
+* Gallery Layout added on Live Meeting Page
+* Toast notification position style fixed
+* Online-Offline Notification system improved
+* Google Analytics event helper plugin added
+* Mute Sound Notification option added on Chat Configuration
+* Site redirect related fixes
+* User preference related fixes
 
-### Premium Partners
+Version 1.2.0 Released on 22 September 2020
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+* Chat Configuration added on Chat Component
+* Click to chat button on User Profile added
+* Mute Sound Notification option for Chat Added
+* Instant Meeting History added
+* Share URL module improved on Live Meeting Page
+* Segment description and editing issue fixed
+* Google Analytics module added
+* System added for Dynamic PWA Assets, App information and Site Manifest
+* Configuration for Terms / Policy acceptance on Registration added
+* Website Configuration added
+* Social Network Configuration added
+* Website Dynamic Pages Module added
+* Website Contact / Query Module added
+* Website Newsletter Subscriber Module added
+* New muted request utility added for XHR Request
+* Alert module added on Dashboard for showing alert
+* Transition for pages extracted to TransitionPage Component
+* Improved installation wizard
+* Restriction added for admin user deletion
+* Registration status issue fixed
+* Datatable API calling issue fixed
 
-## Contributing
+Version 1.1.3 Released on 4 September 2020
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Meetings related configurations added
+* Meetings - Block & Unblock invitee options added
+* Meetings - Block User from Live Meeting option added
+* Delete option added for cancelled and ended meetings
+* Instant meeting join issue fixed
+* Timezone related issues fixed
+* Locale related issues fixed
+* Chat related configurations added
+* User preference updated
 
-## Code of Conduct
+Version 1.1.2 Released on 22 August 2020
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* Meetings empty user column fixed
+* Meeting snooze notification fixed
+* Back navigation issue fixed on Instant Meeting
+* Meeting Filters issue fixed
+* Social login issue fixed
+* Timezone issue fixed
+* Login with OTP fixed
+* Two factor authentication fixed
+* Form Buttons Responsiveness fixed
+* Locale loading issue fixed
+* Change password issue fixed
 
-## Security Vulnerabilities
+Version 1.1.1 Released on 16 August 2020
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Locale loading issue fixed
+* Role assign issue fixed
+* Register page mobile responsiveness fixed
+* Product one click update issue fixed
+* Mailing Configuration From name issue fixed
+* Vuex store naming & versioning issue fix
+* Configurable Application Name and Window Title
+* Theme related issue fixed
 
-## License
+Version 1.1.0 Released on 8 August 2020
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* Live Chat Feature
+* Instant Meeting (Start and Join a Meeting)
+* Meeting Shareable Link Generation and Sharing
+* Meeting Live Page - Redesigned, new layout
+* Full screen and full window & tile layout
+* Configurable Signalling Server URL
+* Raise a Hand on Live Meeting Page
+* User privacy configuration improved
+* Assign role to user
+* Locale selection on Configuration
+* User Preference / Configuration
+* Language Preference for User
+* Ban, Activate, Approve Users
+
+Version 1.0.0 Released on 13 July 2020
+
+* Initial Release

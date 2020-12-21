@@ -1,33 +1,48 @@
 <?php
 
-namespace Database\Factories;
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Helpers\ArrHelper;
+use App\Helpers\CalHelper;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
+use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = User::class;
+/*
+|--------------------------------------------------------------------------
+| Model Factories
+|--------------------------------------------------------------------------
+|
+| This directory should contain each of the model factory definitions for
+| your application. Factories provide a convenient way to generate new
+| model instances for testing / seeding your application's database.
+|
+*/
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
-        ];
-    }
-}
+$factory->define(User::class, function (Faker $faker) {
+
+    $genders = ArrHelper::getList('genders');
+
+    $gender = $faker->randomElement($genders);
+    $name = $faker->name($gender);
+    $username = str_replace(" ", ".", strtolower($name));
+    $created_at = CalHelper::randomDate(
+        Carbon::now()->startOfYear()->toDateTimeString(),
+        Carbon::yesterday()->toDateTimeString()
+    );
+
+    return [
+        'uuid' => $faker->uuid,
+        'name' => $name,
+        'gender' => $gender,
+        'birth_date' => $faker->dateTimeBetween($startDate = '-50 years', $endDate = '-18 years', $timezone = null),
+        'username' => $username,
+        'email' => $username.'@example.com',
+        'email_verified_at' => now(),
+        'password' => bcrypt('password'),
+        'status' => 'activated',
+        'remember_token' => Str::random(10),
+        'created_at' => $created_at
+    ];
+});

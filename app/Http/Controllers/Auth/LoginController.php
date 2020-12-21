@@ -3,38 +3,47 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Repositories\Auth\LoginRepository;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
+    protected $repo;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
+     * Instantiate a new controller instance
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        LoginRepository $repo
+    ) {
+        $this->repo = $repo;
+    }
+
+    /**
+     * User login
+     * @post ("/api/auth/login")
+     * @param ({
+     *      @Parameter("email", type="string", required="true", description="User email or username"),
+     *      @Parameter("password", type="string", required="true", description="User password"),
+     *      @Parameter("device_name", type="string", required="optional", description="User device type"),
+     * })
+     * @return array
+     */
+    public function login(LoginRequest $request)
     {
-        $this->middleware('guest')->except('logout');
+        return $this->success($this->repo->login());
+    }
+
+    /**
+     * User logout
+     * @post ("/api/auth/logout")
+     * @return array
+     */
+    public function logout()
+    {
+        $this->repo->logout();
+
+        return $this->ok(['message' => __('auth.login.logged_out')]);
     }
 }
